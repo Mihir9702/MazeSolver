@@ -3,17 +3,14 @@ package maze;
 public class Main {
 
   public static void main(String[] args) {
-    int width = 800;
-    int height = 600;
+    // get maze
 
+    MazeSolver mazeSolver = new MazeSolver(maze);
 
-    Window window = new Window(width, height);
-
-    Maze maze = new Maze(width, height);
-
-    MazePanel mazePanel = new MazePanel(maze);
-    window.add(mazePanel);
-
-    // 
+    if (mazeSolver.solveMaze(0, 0)) {
+      mazeSolver.printMaze();
+    } else {
+      System.out.println("No solution");
+    }
   }
 }

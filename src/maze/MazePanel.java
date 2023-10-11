@@ -1,19 +1,20 @@
 package maze;
 
-import javax.swing.JPanel;
 import java.awt.Graphics;
+import javax.swing.JPanel;
 
 public class MazePanel extends JPanel {
-    private Maze maze;
 
-    public MazePanel(Maze maze) {
-        this.maze = maze;
-    }
+  private Maze maze;
 
-    @Override
-    protected void paintComponent(Graphics g) {
-        super.paintComponent(g);
+  public MazePanel(Maze maze) {
+    this.maze = maze;
+  }
 
-        maze.drawGrid(g);
-    }
+  @Override
+  protected void paintComponent(Graphics g) {
+    super.paintComponent(g);
+
+    maze.drawGrid(g);
+  }
 }
