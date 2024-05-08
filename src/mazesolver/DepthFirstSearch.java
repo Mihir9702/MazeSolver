@@ -1,8 +1,8 @@
-package maze;
+package mazesolver;
 
 import java.util.List;
 
-public class DepthFirst {
+public class DepthFirstSearch {
 
   // if path is found this method returns true
   // path: { xn, yb, ... x-1, y-1, x0, y0 }

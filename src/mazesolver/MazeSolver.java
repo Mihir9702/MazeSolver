@@ -1,4 +1,4 @@
-package maze;
+package mazesolver;
 
 import java.awt.*;
 import java.awt.event.KeyEvent;
@@ -7,7 +7,7 @@ import java.util.List;
 import javax.swing.JFrame;
 import javax.swing.SwingUtilities;
 
-public class Window extends JFrame {
+public class MazeSolver extends JFrame {
 
   private int[][] maze = {
     { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 },
@@ -21,25 +21,24 @@ public class Window extends JFrame {
     { 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 9, 1 }, // (11, 8) t
     { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 },
   };
+
   private final List<Integer> path = new ArrayList<Integer>();
   private int pathIndex;
 
-  Window(int width, int height) {
+  MazeSolver(int width, int height) {
     setTitle("Maze Solver");
     setSize(width, height);
     setLocationRelativeTo(null);
     setDefaultCloseOperation(EXIT_ON_CLOSE);
     setResizable(false);
 
-    DepthFirst.searchPath(maze, 1, 1, path);
+    DepthFirstSearch.searchPath(maze, 1, 1, path);
     pathIndex = path.size() - 2;
     System.out.println(path);
   }
 
   @Override
   public void paint(Graphics g) {
-    // TODO Auto-generated method stub
-    super.paint(g);
 
     g.translate(50, 50);
 
@@ -104,8 +103,8 @@ public class Window extends JFrame {
       new Runnable() {
         @Override
         public void run() {
-          Window window = new Window(640, 480);
-          window.setVisible(true);
+          MazeSolver ms = new MazeSolver(640, 480);
+          ms.setVisible(true);
         }
       }
     );
